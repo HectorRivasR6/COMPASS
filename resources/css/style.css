@@ -38,84 +38,402 @@ p, span, a, h2, h3, li {
   }
 
 /* Navigation */
-header {
-  display: flex;
-  background-color: black;
-  justify-content: space-between;
+
+li img {
+  display: inline-flex;
+  height: 47px;
+  padding-left: 70px;
+  padding-right: 140px;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a,
+#cssmenu #menu-button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#cssmenu:after,
+#cssmenu > ul:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+#cssmenu #menu-button {
+  display: none;
+}
+#cssmenu {
+  font-family: 'Montserrat', sans-serif;
+  background: #333333;
+  align-items: center;
+  width: 100%;
   position: fixed;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-    filter: alpha(opacity=80);
-    -moz-opacity: 0.80;
-    -khtml-opacity: 0.8;
-    opacity: 0.8;
+  text-align: right;
+  justify-content: space-between;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
-.desktop-nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 65px;
+#cssmenu > ul > li {
+  float: left;
 }
-
-.desktop-nav .logo-title {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-left: 0px;
+#cssmenu.align-center > ul {
+  font-size: 0;
+  text-align: center;
 }
-
-.desktop-nav img {
-  height: 60px;
+#cssmenu.align-center > ul > li {
+  display: inline-block;
+  float: none;
 }
-
-.desktop-nav .nav-items {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-right: 24px;
+#cssmenu.align-center ul ul {
+  text-align: left;
 }
-
-.desktop-nav .nav-items li {
-  margin-left: 25px;
-  font-size: 13px;
-  border-bottom: 2px transparent solid;
-  -webkit-transition-property: border-bottom;
-  transition-property: border-bottom;
-  -webkit-transition-duration: 200ms;
-          transition-duration: 200ms;
-  -webkit-transition-timing-function: ease-in-out;
-          transition-timing-function: ease-in-out;
-  cursor: pointer;
-  color: white;
+#cssmenu.align-right > ul > li {
+  float: right;
 }
+#cssmenu > ul > li > a {
+  padding: 17px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #dddddd;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+#cssmenu > ul > li:hover > a {
+  color: #ffffff;
+}
+#cssmenu > ul > li.has-sub > a {
+  padding-right: 30px;
+}
+#cssmenu > ul > li.has-sub > a:after {
+  position: absolute;
+  top: 22px;
+  right: 11px;
+  width: 8px;
+  height: 2px;
+  display: block;
+  background: #dddddd;
+  content: '';
+}
+#cssmenu > ul > li.has-sub > a:before {
+  position: absolute;
+  top: 19px;
+  right: 14px;
+  display: block;
+  width: 2px;
+  height: 8px;
+  background: #dddddd;
+  content: '';
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
+}
+#cssmenu > ul > li.has-sub:hover > a:before {
+  top: 23px;
+  height: 0;
+}
+#cssmenu ul ul {
+  position: absolute;
+  left: -9999px;
+}
+#cssmenu.align-right ul ul {
+  text-align: right;
+}
+#cssmenu ul ul li {
+  height: 0;
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
+}
+#cssmenu li:hover > ul {
+  left: auto;
+}
+#cssmenu.align-right li:hover > ul {
+  left: auto;
+  right: 0;
+}
+#cssmenu li:hover > ul > li {
+  height: 35px;
+}
+#cssmenu ul ul ul {
+  margin-left: 100%;
+  top: 0;
+}
+#cssmenu.align-right ul ul ul {
+  margin-left: 0;
+  margin-right: 100%;
+}
+#cssmenu ul ul li a {
+  border-bottom: 1px solid rgba(150, 150, 150, 0.15);
+  padding: 11px 15px;
+  width: 170px;
+  font-size: 12px;
+  text-decoration: none;
+  color: #dddddd;
+  font-weight: 400;
+  background: #333333;
+}
+#cssmenu ul ul li:last-child > a,
+#cssmenu ul ul li.last-item > a {
+  border-bottom: 0;
+}
+#cssmenu ul ul li:hover > a,
+#cssmenu ul ul li a:hover {
+  color: #ffffff;
+}
+#cssmenu ul ul li.has-sub > a:after {
+  position: absolute;
+  top: 16px;
+  right: 11px;
+  width: 8px;
+  height: 2px;
+  display: block;
+  background: #dddddd;
+  content: '';
+}
+#cssmenu.align-right ul ul li.has-sub > a:after {
+  right: auto;
+  left: 11px;
+}
+#cssmenu ul ul li.has-sub > a:before {
+  position: absolute;
+  top: 13px;
+  right: 14px;
+  display: block;
+  width: 2px;
+  height: 8px;
+  background: #dddddd;
+  content: '';
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
+}
+#cssmenu.align-right ul ul li.has-sub > a:before {
+  right: auto;
+  left: 14px;
+}
+#cssmenu ul ul > li.has-sub:hover > a:before {
+  top: 17px;
+  height: 0;
+}
+@media all and (max-width: 768px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
+  #cssmenu {
+    width: 100%;
+  }
 
-.nav-items li:hover {
-  border-bottom: 2px white solid;
+  #cssmenu ul {
+    width: 100%;
+    display: none;
+  }
+  #cssmenu.align-center > ul {
+    text-align: left;
+  }
+  #cssmenu ul li {
+    width: 100%;
+    border-top: 1px solid rgba(120, 120, 120, 0.2);
+  }
+
+  #cssmenu ul ul li,
+  #cssmenu li:hover > ul > li {
+    height: auto;
+  }
+  #cssmenu ul li a,
+  #cssmenu ul ul li a {
+    width: 100%;
+    border-bottom: 0;
+  }
+  #cssmenu > ul > li {
+    float: none;
+  }
+  #cssmenu ul ul li a {
+    padding-left: 25px;
+  }
+  #cssmenu ul ul ul li a {
+    padding-left: 35px;
+  }
+  #cssmenu ul ul li a {
+    color: #dddddd;
+    background: none;
+  }
+  #cssmenu ul ul li:hover > a,
+  #cssmenu ul ul li.active > a {
+    color: #ffffff;
+  }
+  #cssmenu ul ul,
+  #cssmenu ul ul ul,
+  #cssmenu.align-right ul ul {
+    position: relative;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    text-align: left;
+  }
+  #cssmenu > ul > li.has-sub > a:after,
+  #cssmenu > ul > li.has-sub > a:before,
+  #cssmenu ul ul > li.has-sub > a:after,
+  #cssmenu ul ul > li.has-sub > a:before {
+    display: none;
+  }
+  #cssmenu #menu-button {
+    display: block;
+    padding: 17px;
+    padding-right: 50px;
+    color: #dddddd;
+    cursor: pointer;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  #cssmenu #menu-button:after {
+    position: absolute;
+    top: 22px;
+    right: 17px;
+    display: block;
+    height: 4px;
+    width: 20px;
+    border-top: 2px solid #dddddd;
+    border-bottom: 2px solid #dddddd;
+    content: '';
+  }
+  #cssmenu #menu-button:before {
+    position: absolute;
+    top: 16px;
+    right: 17px;
+    display: block;
+    height: 2px;
+    width: 20px;
+    background: #dddddd;
+    content: '';
+  }
+  #cssmenu #menu-button.menu-opened:after {
+    top: 23px;
+    border: 0;
+    height: 2px;
+    width: 15px;
+    background: #ffffff;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  #cssmenu #menu-button.menu-opened:before {
+    top: 23px;
+    background: #ffffff;
+    width: 15px;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  #cssmenu .submenu-button {
+    position: absolute;
+    z-index: 99;
+    right: 0;
+    top: 0;
+    display: block;
+    border-left: 1px solid rgba(120, 120, 120, 0.2);
+    height: 46px;
+    width: 46px;
+    cursor: pointer;
+  }
+  #cssmenu .submenu-button.submenu-opened {
+    background: #262626;
+  }
+  #cssmenu ul ul .submenu-button {
+    height: 34px;
+    width: 34px;
+  }
+  #cssmenu .submenu-button:after {
+    position: absolute;
+    top: 22px;
+    right: 19px;
+    width: 8px;
+    height: 2px;
+    display: block;
+    background: #dddddd;
+    content: '';
+  }
+  #cssmenu ul ul .submenu-button:after {
+    top: 15px;
+    right: 13px;
+  }
+  #cssmenu .submenu-button.submenu-opened:after {
+    background: #ffffff;
+  }
+  #cssmenu .submenu-button:before {
+    position: absolute;
+    top: 19px;
+    right: 22px;
+    display: block;
+    width: 2px;
+    height: 8px;
+    background: #dddddd;
+    content: '';
+  }
+  #cssmenu ul ul .submenu-button:before {
+    top: 12px;
+    right: 16px;
+  }
+  #cssmenu .submenu-button.submenu-opened:before {
+    display: none;
+  }
+
+  .main-banner {
+    width: 100%;
+  }
+
+  .financial, .management {
+    font-size: 22px;
+  }
+
+  .main h3 {
+    font-size: 18px;
+  }
+
+  .products {
+    align-items: center;
+  }
 }
  /* Main Banner*/
 
  .main-banner {
    display: flex;
    background-image: url("./images/94173540.jpg");
+   background-attachment: fixed;
    background-repeat: no-repeat;
    background-size: cover;
-   background-position: bottom;
-   height: 600px;
+   background-position:bottom;
+   height: 630px;
    text-align: center;
  }
+
+.main-logo {
+  display: flex;
+  float: right;
+  height: 50px;
+}
 
 .main {
   font-size: 48px;
@@ -150,8 +468,10 @@ header {
 /*¿Qué hacemos?*/
 
 .quehacemos {
+  padding-top: 60px;
+  padding-bottom: 60px;
   display: flex;
-  height: 550px;
+  height: auto;
   text-align: center;
   background-color: #f5f5f5;
   justify-content: center;
@@ -199,6 +519,7 @@ header {
   display: flex;
   height: 650px;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./images/38662892_l.jpg");
+  background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -217,7 +538,9 @@ header {
 
 .servicios {
   display: flex;
-  height: 550px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  height: auto;
   text-align: center;
   background-color: #f5f5f5;
   justify-content: center;
@@ -243,7 +566,7 @@ header {
 .image-circle {
   display: flex;
   padding: 40px 0;
-  height: 100px;
+  height: 200px;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
@@ -272,7 +595,9 @@ section {
 }
 
 .info {
-  height: 720px;
+  height: auto;
+  padding-top: 60px;
+  padding-bottom: 60px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -358,145 +683,162 @@ input[type=submit]:hover {
 /*Footer*/
 
 footer {
-  background: #191919;
+  background: rgb(51, 51, 51);
   color: #fff;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
 }
 
 footer .centered {
-  max-width: 1200px;
+  max-width: 100%;
+  height: 100px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-around;
 }
 
-footer .centered .footer-logo {
-  width: 20%;
+.social {
+  padding-right: 700px;
 }
 
-footer .centered .footer-logo img.logo {
-  padding: 30px 20px 10px 20px;
-  max-width: 100%;
-}
-
-footer .centered .footer-contact {
-  width: 20%;
-}
-
-footer .centered .footer-navigation {
-  width: 60%;
-}
-
-footer .centered .footer-navigation .footer-links-holder {
-  width: 33.33333%;
-  position: relative;
-  float: right;
-  margin: 0;
-}
-
-footer .centered .footer-navigation .footer-links-holder .footer-links {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  -webkit-transition: max-height .5s;
-  transition: max-height .5s;
-}
-
-footer .bottom-bar {
-  position: relative;
-  text-align: center;
-  font-size: .8em;
-  text-transform: uppercase;
-  background: #000;
-  padding: 15px 0;
+.centered span {
+  font-size: 11px;
 }
 
 /* Responsive Para Tablets */
+
 @media only screen and (max-width: 749px) {
   footer .centered {
     flex-wrap: wrap;
   }
 
-  footer .centered .footer-logo {
-    max-width: 250px;
-    width: 50%;
+  .financial, .management {
+    font-size: 27px;
   }
 
-  footer .centered .footer-contact {
-    width: 50%;
-    padding: 0 20px;
+  .products {
+    flex-direction: column;
   }
 
-  footer .centered .footer-navigation {
-    width: 100%;
+  .product {
+    width: 220px;
   }
 
-  footer .centered .footer-navigation .footer-links-holder {
-    padding: 0 20px;
+  .nosotros h3 {
+    font-size: 18px;
+  }
+
+  .services {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service {
+    align-items: center;
+    width: 325px;
+  }
+
+  .title {
+    align-items: center;
+    width: 220px;
+  }
+
+  .info {
+    flex-direction: column;
+  }
+
+  .container {
+    width: auto;
+  }
+
+  footer .centered {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-around;
+  }
+
+  .social {
+    padding-right: 40px;
+    padding-left: 15px;
+  }
+
+  .soñar h1 {
+    font-size: 60px;
+  }
+
+  .soñar h3 {
+    font-size: 25px;
   }
 }
+
 /* Responsive Para Móviles */
-@media only screen and (max-width: 500px) {
-  footer .centered .footer-logo {
-    width: 100%;
-    margin: 0 auto;
+
+@media only screen and (max-width: 530px) {
+  .products {
+    flex-direction: column;
   }
 
-  footer .centered .footer-contact {
-    width: 100%;
+  .financial, .management {
+    font-size: 22px;
   }
 
-  footer .centered .footer-navigation .footer-links-holder {
-    width: 100%;
-    padding: 0;
+  .product {
+    width: 220px;
   }
 
-  footer .centered .footer-navigation .footer-links-holder h3 {
-    margin: 0;
-    padding: 10px 20px;
-    border-top: #000 1px solid;
-    cursor: pointer;
+  .nosotros h3 {
+    font-size: 18px;
   }
 
-/* Flechas */
-  footer .centered .footer-navigation .footer-links-holder h3::after {
-    float: right;
-    margin-right: 10px;
-    content: "";
-    display: inline-block;
-    vertical-align: middle;
-    margin-top: 7px;
-    width: 7px;
-    height: 7px;
-    border-top: 2px solid #fff;
-    border-right: 2px solid #fff;
-    -moz-transform: rotate(135deg);
-    -ms-transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
-    transform: rotate(135deg);
-    -webkit-transition: transform .5s;
-    transition: transform .5s;
+  .services {
+    flex-direction: column;
+    align-items: center;
   }
 
-  footer .centered .footer-navigation .footer-links-holder .footer-links {
-    max-height: 0;
-    overflow: hidden;
-    padding: 0 20px;
+  .service {
+    align-items: center;
+    width: 325px;
   }
 
-  footer .centered .footer-navigation .footer-links-holder.active h3::after {
-    -moz-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
+  .title {
+    align-items: center;
+    width: 220px;
   }
 
-  footer .centered .footer-navigation .footer-links-holder.active .footer-links {
-    max-height: 10000px;
+  .info {
+    flex-direction: column;
+  }
+
+  .container {
+    width: auto;
+  }
+
+  footer .centered {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-around;
+  }
+
+  .social {
+    padding-right: 40px;
+    padding-left: 15px;
+  }
+
+  .soñar h1 {
+    font-size: 46px;
+  }
+
+  .soñar h3 {
+    font-size: 22px;
   }
 }
+
 /* Social Icons */
+
 .social {
   text-align: center;
 }
@@ -504,11 +846,11 @@ footer .bottom-bar {
 .social a {
   display: inline-block;
   padding: 7px;
-  width: 35px;
-  height: 35px;
+  width: 29px;
+  height: 29px;
   margin: 0 2px;
   background: #fff;
-  border-radius: 50%;
+  border-radius: 40%;
   vertical-align: middle;
 }
 
@@ -525,6 +867,7 @@ footer .bottom-bar {
 }
 
 /* Tipografía del Footer */
+
 footer h3 {
   font-weight: lighter;
   font-style: normal;
@@ -550,6 +893,7 @@ footer a:hover {
 }
 
 /* Extra CSS */
+
 .clearfix:before, .clearfix:after {
   content: '\0020';
   display: block;
